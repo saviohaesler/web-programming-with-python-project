@@ -1,0 +1,5 @@
+hasls6.bfh-webdev.ch {
+  reverse_proxy web1:80 web2:80 {
+    lb_policy round_robin
+  }
+}

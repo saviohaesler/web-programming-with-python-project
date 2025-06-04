@@ -1,0 +1,6 @@
+sqlmodel
+sqlalchemy
+requests
+flask
+psycopg2-binary
+flasgger

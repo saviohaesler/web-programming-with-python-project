@@ -1,0 +1,30 @@
+services:
+  db:
+    image: postgres:latest
+    container_name: postgres_db
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: apartments
+    ports:
+      - "5432:5432"
+    restart: always
+
+  api:
+    image: api_image
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: api_container
+    ports:
+      - "3000:3000"
+    environment:
+      USE_POSTGRES: "true"
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_USER: ${POSTGRES_USER}
+      DB_PASSWORD: ${POSTGRES_PASSWORD}
+      DB_NAME: ${POSTGRES_DB}
+    depends_on:
+      - db
+    restart: always

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Immobilie Preis Vorhersage</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 py-10">
+
+<div class="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-md">
+
+    <h2 class="text-2xl font-bold mb-4">Preisvorhersage</h2>
+    <form action="http://hasls6.bfh-webdev.ch:3000/predict_price" method="POST" class="space-y-4">
+        <div>
+            <label for="plz" class="block text-sm font-medium text-gray-700">Postleitzahl</label>
+            <input type="number" id="plz" name="plz" class="w-full p-3 border border-gray-300 rounded-lg" required>
+        </div>
+        <div>
+            <label for="space" class="block text-sm font-medium text-gray-700">Wohnfläche (m²)</label>
+            <input type="number" id="space" name="space" class="w-full p-3 border border-gray-300 rounded-lg" step="0.1" required>
+        </div>
+        <div>
+            <label for="rooms" class="block text-sm font-medium text-gray-700">Anzahl Zimmer</label>
+            <input type="number" id="rooms" name="rooms" class="w-full p-3 border border-gray-300 rounded-lg" step="0.5" required>
+        </div>
+        <button type="submit" class="w-full bg-green-600 text-white p-3 rounded-lg hover:bg-green-700">Vorhersage berechnen</button>
+    </form>
+
+    <div class="mt-6 text-center">
+        <a href="index.html" class="text-blue-600 hover:underline">Zurück zur Startseite</a>
+    </div>
+
+</div>
+
+</body>
+</html>

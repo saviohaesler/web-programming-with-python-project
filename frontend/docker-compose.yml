@@ -1,0 +1,23 @@
+services:
+  web1:
+    build: ./
+    container_name: web1
+    expose:
+      - "80"
+
+  web2:
+    build: ./
+    container_name: web2
+    expose:
+      - "80"
+
+  caddy:
+    image: caddy:2
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+    depends_on:
+      - web1
+      - web2
